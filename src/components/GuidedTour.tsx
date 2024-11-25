@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Joyride, { CallBackProps, STATUS, Step } from 'react-joyride';
 import { useTourStore } from '../store/useTourStore';
 import { useThemeStore } from '../store/useThemeStore';
@@ -45,6 +45,10 @@ const steps: Step[] = [
 ];
 
 export function GuidedTour() {
+  // Temporarily disable tour by always returning null
+  return null;
+
+  /* Tour code commented out for now
   const { hasSeenTour, setHasSeenTour, currentStep, setCurrentStep } = useTourStore();
   const { isDark } = useThemeStore();
   const [run, setRun] = useState(!hasSeenTour);
@@ -81,32 +85,6 @@ export function GuidedTour() {
           arrowColor: isDark ? '#1e293b' : '#ffffff',
           overlayColor: 'rgba(0, 0, 0, 0.75)',
         },
-        tooltip: {
-          padding: '1rem',
-          borderRadius: '0.5rem',
-        },
-        tooltipContainer: {
-          textAlign: 'left',
-        },
-        buttonNext: {
-          backgroundColor: '#2563eb',
-          borderRadius: '0.375rem',
-          padding: '0.5rem 1rem',
-          color: '#ffffff',
-        },
-        buttonBack: {
-          marginRight: '0.5rem',
-          color: '#2563eb',
-        },
-        buttonSkip: {
-          color: isDark ? '#94a3b8' : '#64748b',
-        },
-        buttonClose: {
-          color: isDark ? '#94a3b8' : '#64748b',
-        },
-        spotlight: {
-          backgroundColor: 'transparent',
-        },
       }}
       floaterProps={{
         disableAnimation: true,
@@ -120,4 +98,5 @@ export function GuidedTour() {
       }}
     />
   );
+  */
 }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import { format } from 'date-fns';
 
 interface PaymentModalProps {
@@ -9,10 +9,17 @@ interface PaymentModalProps {
 }
 
 export function PaymentModal({ isOpen, onClose, onConfirm, dueDate }: PaymentModalProps) {
-  const [paymentDate, setPaymentDate] = useState(
-    dueDate ? format(dueDate, 'yyyy-MM-dd') : format(new Date(), 'yyyy-MM-dd')
-  );
+  const [paymentDate, setPaymentDate] = useState('');
 
+  // Atualize paymentDate quando dueDate mudar
+  useEffect(() => {
+    if (dueDate) {
+      setPaymentDate(format(dueDate, 'yyyy-MM-dd'));
+    } else {
+      setPaymentDate(format(new Date(), 'yyyy-MM-dd'));
+    }
+  }, [dueDate]);
+  
   if (!isOpen) return null;
 
   const handleSubmit = (e: React.FormEvent) => {
