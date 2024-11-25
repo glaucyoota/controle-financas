@@ -1,7 +1,7 @@
 {
   "name": "financial-control-pwa",
   "private": true,
-  "version": "1.20241124.8",
+  "version": "1.20241124.9",
   "type": "module",
   "scripts": {
     "dev": "vite",
