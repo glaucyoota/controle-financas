@@ -95,7 +95,7 @@ export function RecurringTemplates({ onSuccess }: RecurringTemplatesProps) {
   const handleStartGenerate = (template: typeof recurringTemplates[0]) => {
     setGeneratingForId(template.id);
     setNewAmount(formatCurrencyValue(template.expectedAmount));
-    const defaultDate = new Date();
+    const defaultDate = new Date(periodStart);
     defaultDate.setDate(template.dueDay);
     setNewDate(format(defaultDate, 'yyyy-MM-dd'));
   };
